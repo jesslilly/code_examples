@@ -9,7 +9,7 @@ import java.util.List;
  * @author jmlilly
  *
  */
-public class MaxAlgorithm extends AggregateAlgorithmImpl {
+public class MaxAlgorithm implements AggregateAlgorithm {
 	
 	private Double max;
 	
@@ -18,22 +18,19 @@ public class MaxAlgorithm extends AggregateAlgorithmImpl {
 		max = null;
 	}
 
-	@Override
 	public void initialize(List<Double> numbers) {
+		max = null;
 		for (Double number : numbers) {
 			append(number);
 		}
 	}
 
-	@Override
 	public void append(Double number) {
-		super.append(number);
 		if (max == null || number > max) {
 			max = number;
 		}
 	}
 
-	@Override
 	public void append(List<Double> numbers) {
 		for (Double number : numbers) {
 			append(number);
