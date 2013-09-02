@@ -37,9 +37,6 @@ public class MaxAlgorithm implements AggregateAlgorithm {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.jesslilly.aggalg.AggregateAlgorithm#aggregate()
-	 */
 	public Double aggregate() {
 		return getMax();
 	}

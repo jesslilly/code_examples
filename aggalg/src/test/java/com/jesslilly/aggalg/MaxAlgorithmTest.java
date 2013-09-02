@@ -5,8 +5,6 @@ package com.jesslilly.aggalg;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -21,13 +19,11 @@ import org.junit.Test;
  */
 public class MaxAlgorithmTest {
 	
-	public final static List<Double> POSITIVE_INTEGERS = Arrays.asList(1.0d,2.0d,3.0d);
-	public final static Double POSITIVE_INTEGERS_MAX = new Double(3.0);
-	public final static MaxAlgorithm POSITIVE_INTEGERS_ALG = new MaxAlgorithm();
+	public final static Double LIST_DOUBLE_1_2_3_MAX = new Double(3.0);
+	public final static MaxAlgorithm LIST_DOUBLE_1_2_3_ALG = new MaxAlgorithm();
 	
-	public final static List<Double> NEGATIVE_INTEGERS = Arrays.asList(-1.0d,-2.0d,-3.0d);
-	public final static Double NEGATIVE_INTEGERS_MAX = new Double(-1.0);
-	public final static MaxAlgorithm NEGATIVE_INTEGERS_ALG = new MaxAlgorithm();
+	public final static Double LIST_DOUBLE_NEG_1_2_3_MAX = new Double(-1.0);
+	public final static MaxAlgorithm LIST_DOUBLE_NEG_1_2_3_ALG = new MaxAlgorithm();
 
 
 	@BeforeClass
@@ -40,8 +36,8 @@ public class MaxAlgorithmTest {
 
 	@Before
 	public void setUp() throws Exception {
-		POSITIVE_INTEGERS_ALG.initialize(POSITIVE_INTEGERS);
-		NEGATIVE_INTEGERS_ALG.initialize(NEGATIVE_INTEGERS);
+		LIST_DOUBLE_1_2_3_ALG.initialize(TestData.LIST_DOUBLE_1_2_3);
+		LIST_DOUBLE_NEG_1_2_3_ALG.initialize(TestData.LIST_DOUBLE_NEG_1_2_3);
 	}
 
 	@After
@@ -49,31 +45,31 @@ public class MaxAlgorithmTest {
 	}
 
 	@Test
-	public void testInitialize_Positive() {
-		assertEquals(POSITIVE_INTEGERS_ALG.aggregate(),POSITIVE_INTEGERS_MAX);
+	public void testAggregate_Positive() {
+		assertEquals(LIST_DOUBLE_1_2_3_ALG.aggregate(),LIST_DOUBLE_1_2_3_MAX);
 	}
 
 	@Test
-	public void testInitialize_Negative() {
-		assertEquals(NEGATIVE_INTEGERS_ALG.aggregate(),NEGATIVE_INTEGERS_MAX);
+	public void testAggregate_Negative() {
+		assertEquals(LIST_DOUBLE_NEG_1_2_3_ALG.aggregate(),LIST_DOUBLE_NEG_1_2_3_MAX);
 	}
 
 	@Test
 	public void testAppendDouble_More() {
-		POSITIVE_INTEGERS_ALG.append(new Double(4.0));
-		assertEquals(POSITIVE_INTEGERS_ALG.aggregate(),new Double(4.0));
+		LIST_DOUBLE_1_2_3_ALG.append(new Double(4.0));
+		assertEquals(LIST_DOUBLE_1_2_3_ALG.aggregate(),new Double(4.0));
 	}
 
 	@Test
 	public void testAppendDouble_Less() {
-		POSITIVE_INTEGERS_ALG.append(new Double(1.0));
-		assertEquals(POSITIVE_INTEGERS_ALG.aggregate(),POSITIVE_INTEGERS_MAX);
+		LIST_DOUBLE_1_2_3_ALG.append(new Double(1.0));
+		assertEquals(LIST_DOUBLE_1_2_3_ALG.aggregate(),LIST_DOUBLE_1_2_3_MAX);
 	}
 
 	@Test
 	public void testAppendListOfDouble() {
-		NEGATIVE_INTEGERS_ALG.append(POSITIVE_INTEGERS);
-		assertEquals(NEGATIVE_INTEGERS_ALG.aggregate(),POSITIVE_INTEGERS_MAX);
+		LIST_DOUBLE_NEG_1_2_3_ALG.append(TestData.LIST_DOUBLE_1_2_3);
+		assertEquals(LIST_DOUBLE_NEG_1_2_3_ALG.aggregate(),LIST_DOUBLE_1_2_3_MAX);
 	}
 
 }
