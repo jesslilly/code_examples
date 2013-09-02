@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>aggalg</groupId>
   <artifactId>aggalg</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>aggalg</name>
   <description>Aggregate algorithms</description>
 </project>
