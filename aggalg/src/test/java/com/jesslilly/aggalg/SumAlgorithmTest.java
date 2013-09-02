@@ -17,13 +17,13 @@ import org.junit.Test;
  * @author jmlilly
  *
  */
-public class MaxAlgorithmTest {
+public class SumAlgorithmTest {
 	
-	public final static Double LIST_DOUBLE_1_2_3_MAX = new Double(3.0);
-	public final static MaxAlgorithm LIST_DOUBLE_1_2_3_ALG = new MaxAlgorithm();
+	public final static Double LIST_DOUBLE_1_2_3_SUM = new Double(6.0);
+	public final static SumAlgorithm LIST_DOUBLE_1_2_3_ALG = new SumAlgorithm();
 	
-	public final static Double LIST_DOUBLE_NEG_1_2_3_MAX = new Double(-1.0);
-	public final static MaxAlgorithm LIST_DOUBLE_NEG_1_2_3_ALG = new MaxAlgorithm();
+	public final static Double LIST_DOUBLE_NEG_1_2_3_SUM = new Double(-6.0);
+	public final static SumAlgorithm LIST_DOUBLE_NEG_1_2_3_ALG = new SumAlgorithm();
 
 
 	@BeforeClass
@@ -46,30 +46,30 @@ public class MaxAlgorithmTest {
 
 	@Test
 	public void testAggregate_Positive() {
-		assertEquals(LIST_DOUBLE_1_2_3_MAX,LIST_DOUBLE_1_2_3_ALG.aggregate());
+		assertEquals(LIST_DOUBLE_1_2_3_SUM,LIST_DOUBLE_1_2_3_ALG.aggregate());
 	}
 
 	@Test
 	public void testAggregate_Negative() {
-		assertEquals(LIST_DOUBLE_NEG_1_2_3_MAX,LIST_DOUBLE_NEG_1_2_3_ALG.aggregate());
+		assertEquals(LIST_DOUBLE_NEG_1_2_3_SUM,LIST_DOUBLE_NEG_1_2_3_ALG.aggregate());
 	}
 
 	@Test
 	public void testAppendDouble_More() {
-		LIST_DOUBLE_1_2_3_ALG.append(new Double(4.0));
-		assertEquals(new Double(4.0),LIST_DOUBLE_1_2_3_ALG.aggregate());
+		LIST_DOUBLE_1_2_3_ALG.append(new Double(4.1));
+		assertEquals(new Double(10.1),LIST_DOUBLE_1_2_3_ALG.aggregate());
 	}
 
 	@Test
 	public void testAppendDouble_Less() {
-		LIST_DOUBLE_1_2_3_ALG.append(new Double(1.0));
-		assertEquals(LIST_DOUBLE_1_2_3_MAX,LIST_DOUBLE_1_2_3_ALG.aggregate());
+		LIST_DOUBLE_1_2_3_ALG.append(new Double(-6.5));
+		assertEquals(new Double(-0.5),LIST_DOUBLE_1_2_3_ALG.aggregate());
 	}
 
 	@Test
 	public void testAppendListOfDouble() {
 		LIST_DOUBLE_NEG_1_2_3_ALG.append(TestData.LIST_DOUBLE_1_2_3);
-		assertEquals(LIST_DOUBLE_1_2_3_MAX,LIST_DOUBLE_NEG_1_2_3_ALG.aggregate());
+		assertEquals(new Double(0.0),LIST_DOUBLE_NEG_1_2_3_ALG.aggregate());
 	}
 
 }
