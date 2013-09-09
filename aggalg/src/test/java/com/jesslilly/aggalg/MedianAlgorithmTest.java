@@ -13,7 +13,6 @@ import org.junit.Test;
 
 public class MedianAlgorithmTest {
 
-	public final static Double LIST_DOUBLE_1_2_3_MEDIAN = new Double(3.0);
 	public final static MedianAlgorithm LIST_DOUBLE_1_2_3_ALG = new MedianAlgorithm();
 
 	@BeforeClass
