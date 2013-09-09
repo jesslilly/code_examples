@@ -7,12 +7,12 @@ import java.util.List;
 
 /**
  * @author jmlilly
- *
+ * 
  */
 public class SumAlgorithm implements AggregateAlgorithm {
-	
+
 	private Double sum;
-	
+
 	public SumAlgorithm() {
 		super();
 		sum = 0.0;
@@ -20,9 +20,7 @@ public class SumAlgorithm implements AggregateAlgorithm {
 
 	public void initialize(List<Double> numbers) {
 		sum = 0.0;
-		for (Double number : numbers) {
-			append(number);
-		}
+		append(numbers);
 	}
 
 	public void append(Double number) {

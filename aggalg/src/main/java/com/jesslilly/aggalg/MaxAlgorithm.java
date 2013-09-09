@@ -7,12 +7,12 @@ import java.util.List;
 
 /**
  * @author jmlilly
- *
+ * 
  */
 public class MaxAlgorithm implements AggregateAlgorithm {
-	
+
 	private Double max;
-	
+
 	public MaxAlgorithm() {
 		super();
 		max = null;
@@ -20,9 +20,7 @@ public class MaxAlgorithm implements AggregateAlgorithm {
 
 	public void initialize(List<Double> numbers) {
 		max = null;
-		for (Double number : numbers) {
-			append(number);
-		}
+		append(numbers);
 	}
 
 	public void append(Double number) {
