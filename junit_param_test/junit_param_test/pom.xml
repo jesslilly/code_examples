@@ -4,7 +4,7 @@
 
   <groupId>com.jesslilly</groupId>
   <artifactId>junit_param_test</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
 
   <name>junit_param_test</name>
